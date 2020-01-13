@@ -1,0 +1,8 @@
+services:
+    alegue.mediafirer.controller.ucp:
+        class: alegue\mediafire\controller\listener
+        arguments:
+            - '@template'
+        tags:
+            - { name: event.listener }
+
