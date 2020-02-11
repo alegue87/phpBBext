@@ -1,0 +1,8 @@
+services:
+    alegue.imagebb.controller.ucp:
+        class: alegue\imagebb\controller\listener
+        arguments:
+            - '@template'
+        tags:
+            - { name: event.listener }
+

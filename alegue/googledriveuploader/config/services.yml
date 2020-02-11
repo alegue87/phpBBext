@@ -1,0 +1,7 @@
+services:
+    alegue.googledriveuploader.listener:
+        class: alegue\googledriveuploader\event\main_listener
+        arguments:
+            - '@language'
+        tags:
+            - { name: event.listener }

@@ -1,0 +1,146 @@
+<style>
+    .content {
+        overflow-y: scroll;
+        height: 400px;
+    }
+
+    .box {
+        width: 40%;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 35px;
+        border: 2px solid #fff;
+        border-radius: 20px/50px;
+        background-clip: padding-box;
+        text-align: center;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .popup {
+        margin: 10px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 60%;
+        position: relative;
+        transition: all 1s ease-in-out;
+        height: 90%;
+    }
+
+    .popup h2 {
+        margin-top: 0;
+        color: #333;
+        font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .popup .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .popup .close:hover {
+        color: #06D85F;
+    }
+
+    .popup .content {
+        height: 70%;
+        overflow: auto;
+    }
+
+    @media screen and (max-width: 700px) {
+        .box {
+            width: 70%;
+        }
+
+        .popup {
+            width: 70%;
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    img.thumb {
+        float: left;
+        width: 60px;
+        border: 1px solid grey;
+        padding: 5px;
+        margin: 0px 5px;
+    }
+
+    div.insertBBCodeContainer {
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    #loaderPopup button {
+        background: lightgrey;
+        padding: 0px 5px;
+        color: black;
+    }
+
+    #loaderPopup {
+        font-size:15px;
+    }
+
+    #loaderPopup h3 {
+        border-bottom:none!important;
+    }
+</style>
+
+<!-- IF not $INCLUDED_JQUERYUIJS -->
+<!-- INCLUDEJS @alegue_imagebb/jquery.js -->
+<!-- DEFINE $INCLUDED_JQUERYUIJS = true -->
+<!-- ENDIF -->
+
+<!-- INCLUDEJS @alegue_imagebb/imagebb.js -->
+
+<div id="loaderPopup" class="overlay">
+    <div class="popup">
+        <div>
+            <h2>Caricatore di immagini</h2>
+            <a class="close" href="#">&times;</a>
+        </div>
+        <hr>
+        <div id="loader" style="text-align: center;">
+            <input type='file' id='images' name='images' accept="image/png, image/jpeg, image/svg, image/gif"
+                multiple />
+            <input type='button' id='sendImage' value="Invia" />
+        </div>
+        <div id="status" style='margin-right: 10px;' class="hide">
+            <div>Immagini caricate: <span id="imagesLoaded">0</span></div>
+            <div>Immagini non caricate: <span id="imagesFailed">0</span></div>
+        </div>
+        <hr>
+        <div class="content">
+            <div id="results" style='margin-right:10px'>
+            </div>
+        </div>
+        <div style='text-align:right;margin-top:10px'>
+            <button id='resetLoader' class='hide'>Resetta caricatore immagini</button>
+        </div>
+    </div>
+</div>

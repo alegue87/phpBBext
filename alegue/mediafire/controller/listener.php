@@ -52,10 +52,16 @@ class listener implements EventSubscriberInterface
 	
 	public function load_mediafire_session_token($event)
     {   
-        $appId = "APP_ID";
-        $apiKey = "APP_KEY";
-        $email = "EMAIL";
-        $password = "PASSWORD";
+        $appId = "44987";
+        $apiKey = "u5ojnxmulnvv4j1px88o1oi4n1nz1ek3kviluqnn";
+
+        // Login secondario
+        // $email = "mediafire@bioscambio.it";
+        // $password = "@biosincambio2015";
+
+        // Login primario
+        $email = "alias_mimmo@bioscambio.it";
+        $password = "autoproduzione";
 
         //include("mflib.php");
 
@@ -72,7 +78,7 @@ class listener implements EventSubscriberInterface
         // Che tipo di token utilizzare? ( TRUE/FALSE )
         // Senza argomento da questo errore:
         // PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function mflib::userGetSessionToken()
-        $sessionToken = @$mflib->userGetSessionToken(FALSE);
+        $sessionToken = @$mflib->userGetSessionToken(TRUE);
         //$uploadKey = $mflib->fileUpload($sessionToken, $uploadedFile);
         $this->template->assign_var('S_MF_SESSION_TOKEN', $sessionToken);
     }
