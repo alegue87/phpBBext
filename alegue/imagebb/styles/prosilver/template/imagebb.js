@@ -2,7 +2,7 @@
 $(document).ready(function () {
     disableImgButtons(); // disabilita caricamento immagini di phpbb
 
-    var API_KEY = "API_KEY";
+    var API_KEY = "9d73931a6bca7fd08ca78d41617209b7";
     var imagesLoaded = 0;
     var imagesFailed = 0;
     var totalImages = 0;
